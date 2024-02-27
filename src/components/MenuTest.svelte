@@ -1,31 +1,33 @@
 <script lang="ts">
   import Menu from "@smui/menu";
+  import List from "@smui/list";
 
   export let wrapper: HTMLElement;
   export let isOpen: boolean = true;
   export let isDialog: boolean = true;
   let menu: Menu;
+
+  $: console.log(menu);
+
+  $: if (menu) {
+    menu.setOpen(isOpen);
+  }
 </script>
 
-<div
-  class="mdc-menu mdc-menu-surface smui-menu-surface--static"
-  bind:this={wrapper}
-  class:isOpen
->
-  <slot />
+<div bind:this={wrapper}>
+  <Menu bind:this={menu} open={false}>
+    <List>
+      <slot />
+    </List>
+  </Menu>
 </div>
 
 <style>
-  div {
+  /* div {
     display: none;
     width: max-content;
   }
   .isOpen {
     display: block;
-  }
-  .isDialog {
-    position: absolute;
-    top: 30px;
-    z-index: var(--picker-z-index, 2);
-  }
+  } */
 </style>

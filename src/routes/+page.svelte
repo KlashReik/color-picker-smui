@@ -1,10 +1,11 @@
 <script lang="ts">
-  import MenuWrapper from "../components/MenuWrapper.svelte";
-  import Menu from "@smui/menu";
   import ColorPicker from "svelte-awesome-color-picker";
-  let open = false;
+  import MenuTest from "../components/MenuTest.svelte";
+  import MenuWrapper from "../components/MenuWrapper.svelte";
 </script>
 
-<ColorPicker components={{ wrapper: MenuWrapper }} />
-<div></div>
-<Menu><p>Random paragraph</p></Menu>
+<div style="display: flex; gap: 100px;">
+  <ColorPicker components={{ wrapper: MenuTest }} />
+
+  <ColorPicker components={{ wrapper: MenuWrapper }} />
+</div>
